@@ -62,12 +62,11 @@ export const FloatingNav = ({ activeSection, visible, onNavClick }: { activeSect
               </button>
             ))}
             <div className="w-px h-5 bg-white/15 mx-1" />
-            <button
-              onClick={() => scrollTo('pricing', navigate)}
-              className="px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-medium hover:bg-white/20 transition-all font-mono tracking-widest uppercase"
-            >
-             SynteraEngineX V2.1
-            </button>
+            <Link to="/synterax">
+              <button className="px-4 py-1.5 rounded-full bg-white/10 text-white text-xs font-medium hover:bg-white/20 transition-all font-mono tracking-widest uppercase">
+               SynteraX
+              </button>
+            </Link>
           </div>
         </motion.nav>
       )}

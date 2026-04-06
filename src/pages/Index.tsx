@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Layout, scrollTo, NAV_ITEMS } from '@/components/layout/Layout';
 import {
   Dialog,
@@ -11,7 +12,7 @@ import {
 import { motion, AnimatePresence } from 'framer-motion';
 import { TestimonialsColumn } from '@/components/ui/testimonials-columns-1';
 import {
-  Link, Download, GitBranch, BookOpen, ArrowRight, Twitter, Linkedin, Instagram,
+  Link as LinkIcon, Download, GitBranch, BookOpen, ArrowRight, Twitter, Linkedin, Instagram,
   Menu, Plus, Network, Layers, Repeat, Activity, MessageCircle, Star, Check,
   ChevronDown, Mail, MapPin, Phone, ArrowUpRight, X, Play, Users, Zap, Globe,
   Database, RefreshCw, Server, AlertCircle, Terminal, Facebook
@@ -116,12 +117,11 @@ const MobileMenu = ({ isOpen, onClose, activeSection, onNavClick }: { isOpen: bo
             </ul>
           </nav>
           <div className="p-6">
-            <button
-              onClick={() => { scrollTo('pricing'); onClose(); }}
-              className="w-full liquid-glass-strong rounded-full py-4 text-white font-medium hover:scale-105 active:scale-95 transition-transform"
-            >
-              SynteraEngineX V2.1
-            </button>
+            <Link to="/synterax" onClick={onClose}>
+              <button className="w-full liquid-glass-strong rounded-full py-4 text-white font-medium hover:scale-105 active:scale-95 transition-transform">
+                SynteraX
+              </button>
+            </Link>
             <div className="flex items-center justify-center gap-4 mt-6">
               {[
                 { Icon: XIcon, url: 'https://x.com/synteratek' },
@@ -204,20 +204,21 @@ const HeroSection = ({ onMenuOpen, activeSection, onNavClick }: { onMenuOpen: ()
           Orchestrating the<br />
           core of <em className="font-serif not-italic text-white/80 italic">Intelligent</em> Workflows
         </motion.h1>
-        <motion.button
-          onClick={() => scrollTo('about')}
-          className="liquid-glass-strong rounded-full px-8 py-4 flex items-center gap-3 text-white font-medium hover:scale-105 active:scale-95 transition-transform"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          SynteraEngineX V2.1
-          <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center">
-            <Download size={14} />
-          </span>
-        </motion.button>
+        <Link to="/synterax">
+          <motion.button
+            className="liquid-glass-strong rounded-full px-8 py-4 flex items-center gap-3 text-white font-medium hover:scale-105 active:scale-95 transition-transform"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            SynteraX
+            <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center">
+              <ArrowRight size={14} />
+            </span>
+          </motion.button>
+        </Link>
         <motion.div
           className="flex flex-wrap gap-3 justify-center"
           initial={{ opacity: 0 }}
